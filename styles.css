@@ -1,0 +1,256 @@
+:root{
+--White: hsl(0, 0%, 100%);
+--Light-grayish-violet: hsl(270, 3%, 87%);
+--Dark-grayish-violet: hsl(279, 6%, 55%);
+--Very-dark-violet: hsl(278, 68%, 11%);
+--Red: hsl(0, 100%, 66%)
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: 'Space Grotesk', sans-serif;
+    box-sizing: border-box;
+}
+:focus{
+    outline: none;
+}
+body::after{
+    content:"";
+    background-image: url(images/bg-main-desktop.png);
+    background-size: cover;
+    width: 30%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -100;
+}
+.graid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.cards{
+    width: 500px;
+    position: relative;
+    top: 10rem;
+    left: 15rem;
+}
+.card__front{
+    background-image: url(images/bg-card-front.png);
+    width: 350px;
+    height: 200px;
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    position: relative;
+    box-shadow: #00000026 0px 0px 11px 4px;
+    z-index: 200;
+}
+.title__front{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    }
+    .title__front h1{
+        color: var(--White);
+        letter-spacing: .3rem;
+        line-height: 70px;
+    }
+    
+    .title-hloder{
+        display: flex;
+        color: var(--White);
+        justify-content: space-between;
+    }
+    /* card back */
+.card__back{
+    background-image: url(images/bg-card-back.png);
+    width: 350px;
+    height: 200px;
+    border-radius: .5rem;
+    position: relative;
+    left: 5rem;
+    position: relative;
+    box-shadow: #00000026 0px 0px 11px 4px;
+    z-index: 150;
+}
+.card__back h2{
+    color: var(--White);
+    position: absolute;
+    top: 108px;
+    right: 10px;
+    letter-spacing: .3rem;
+}
+
+/* form */
+.hidden{
+    display: none;
+}
+.contenear__form{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    width: 500px;
+    padding: 2rem;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+label{
+    display: block;
+    letter-spacing: 1.5px;
+    line-height: 2.5rem;
+    color: var(--Very-dark-violet);
+    text-transform: uppercase;
+}
+input{
+    width: 100%;
+    height: 3rem;
+    margin-bottom: .5rem;
+    border-radius: .3rem;
+    border: .5px solid var(--Light-grayish-violet) ;
+    padding-left: 1rem;
+}
+::placeholder{
+    color: var(--Dark-grayish-violet);
+}
+
+
+
+
+.form__confirm{
+    margin-top: 2rem;
+    cursor: pointer;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+}
+
+
+
+.cvc{
+    width: 50%;
+    margin-left: 40px;
+}
+.input__eg{
+    width:calc(100%);
+}
+.exp{
+    width: 50%;
+}
+.input__mm,
+.input__yy{
+    width: 100%;
+    margin-right: 10px;
+    }
+    .input__yy{
+        margin-left: 15px;
+    }
+
+/* complate */
+.complate{
+    text-align: center;
+    width: 400px;
+}
+.complate__img{
+    margin-bottom: 1rem;
+}
+.complate__title{
+    color: var(--Very-dark-violet);
+    letter-spacing: .3rem;
+    line-height: 3;
+    text-transform: uppercase;
+}
+.complate__descriptin{
+    color: var(--Dark-grayish-violet);
+}
+.complate__input{
+    width: 100%;
+    height: 3rem;
+    margin-bottom: .5rem;
+    border-radius: .3rem;
+    border: .5px solid var(--Light-grayish-violet) ;
+    padding-left: 1rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+}
+.errors{
+    color: var(--Red);
+    font-size:14px ;
+    margin-top: -.5rem;
+}
+@media (max-width: 1300px) {
+    body::after{
+        width: 100%;
+        height: 30%;
+    }
+.graid{
+    display: flex;
+    flex-direction: column;
+}
+.cards{
+    width: 100%;
+    position: static;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    width: 100%;
+}
+.card__front{
+    top: -80px;
+}
+.card__back{
+    left:3.5rem;
+}
+.contenear__cards{
+    height: 22rem;
+}
+
+.contenear__form{
+    justify-content: flex-start;
+    height: 70vh;
+}
+}
+@media (max-width: 768px) {
+    body::after{
+        height: 15rem;
+    }
+    h1{
+        letter-spacing: .1rem;
+    }
+    *{
+        font-size: small;
+    }
+    .card__back,
+    .card__front{
+        width: 250px;
+        height: 150px;
+    }
+    .title__front{
+        position: static;
+    }
+    .card__front{
+        right: 10px;
+        padding: .3 ;
+    }
+    .front__img{
+        width: 50px;
+    }
+    form{
+        width: 400px;
+    }
+}
+
+
+
+
