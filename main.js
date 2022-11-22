@@ -1,3 +1,4 @@
+
 document.querySelectorAll("input").forEach(i =>{
     i.addEventListener("click", function(){
         i.style.borderImageSource = "linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%)"
@@ -43,36 +44,29 @@ inputCardNumber.addEventListener("focusout", function(){
     }
 })
 
-inputCardNumber.addEventListener("keydown",function(e){
-    let arrays = [];
-    arrays.push(inputCardNumber.value);
-    let array = Array.from(`${arrays}`);
-    if (array.length === 4 || array.length === 9 || array.length === 14 ) {
-        inputCardNumber.value += " ";
-    }
-    // if (e.key === "Backspace") {
-    //     inputCardNumber.value =inputCardNumber.value.charAt(inputCardNumber.value.length - 1 ) ;
-    //     remove(inputCardNumber.value.charAt(inputCardNumber.value.length - 1 ));
-    //     console.log(inputCardNumber.value.charAt(inputCardNumber.value.length -1 ));
-    //     // console.log(inputCardNumber.value.charAt(inputCardNumber.value.length - 1 ))
-    // }
-    
-})
-
-
-
+inputCardNumber.addEventListener('input', (e) => {
+    // Formats value into credit card
+    e.target.value = e.target.value
+    .replace(/[^\dA-Z]/g, '')
+    .replace(/(.{4})/g, '$1 ')
+    .trim();
+    validateForm(e.target);
+});
 
 
 /*exp mm*/
-let inputMm = document.querySelector(".input__mm");
-let titleMm = document.querySelector(".title-mm");
+let inputmm = document.querySelector(".input__mm");
+let titlemm = document.querySelector(".title-mm");
 
-inputMm.addEventListener("focusout",function(){
-    titleMm.textContent = inputMm.value;
-    if(inputMm.value === ""){
-        titleMm.textContent="00";
+inputmm.addEventListener("focusout",function(){
+    titlemm.textContent = inputmm.value;
+    if(inputmm.value === ""){
+        titlemm.textContent="00";
     }
-    
+})
+inputmm.addEventListener("input",(e) =>{
+e.target.value = e.target.value
+.replace(/[^\dA-Z]/g, '');
 })
 
 /*exp yy*/
@@ -85,6 +79,10 @@ inputYy.addEventListener("focusout",function(){
         titleYy.textContent="00";
     }
 })
+inputYy.addEventListener("input",(e) =>{
+    e.target.value = e.target.value
+    .replace(/[^\dA-Z]/g, '');
+    })
 
 /*eg*/ 
 let inputEg = document.querySelector(".input__eg");
@@ -92,17 +90,27 @@ let titleEg = document.querySelector(".title__eg");
 inputEg.addEventListener("focusout",function(){
     titleEg.textContent = inputEg.value;
     if(inputEg.value === ""){
-        titleEg.textContent ="000"
+        titleEg.textContent ="0000"
     }
 })
-
-
-
+inputEg.addEventListener("input",(e) =>{
+    e.target.value = e.target.value
+    .replace(/[^\dA-Z]/g, '');
+    })
 
 /*=========complate ======*/ 
 let complatetInput =document.querySelector(".complate__input");
 complatetInput.addEventListener("click",function (){
     document.querySelector(".complate").classList.add("hidden");
     document.querySelector("form").classList.remove("hidden");
+})
 
+/*======================*/ 
+let worng = false ;
+let confirm = document.querySelector(".form__confirm");
+confirm.addEventListener("click", function (){
+    if (worng == false) {
+        document.querySelector(".form-card").classList.add("hidden");
+        document.querySelector(".complate").classList.remove("hidden");
+    }
 })

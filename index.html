@@ -42,22 +42,22 @@
           
         </div>
         <div class="card__back">
-          <h2 class="title__eg">000</h2>
+          <h2 class="title__eg">0000</h2>
         </div>
       </div>
     </div>
     
     <div class="contenear__form">
-        <form>
+        <form class="form-card ">
           <div>
           <label>Cardholder Name</label>
-          <input  maxlength="20" class="input__holder-name" type="text" placeholder="e.g. Jane Appleseed">
+          <input  maxlength="18" class="input__holder-name" type="text" placeholder="e.g. Jane Appleseed">
           <p class="errors holder-name hidden">can't be blank</p>
           </div>
         <div>
           <label>Card Number</label>
           <input maxlength="19" class="input__card-number" type="text" placeholder="e.g. 1234 5678 9123 0000">
-          <p class="errors holder-name hidden">Wrong format,numbers only</p>
+          <p class="errors holder-name hidden">can't be blank</p>
         </div>
 
         <div class="row">
@@ -65,11 +65,12 @@
           <div class="exp">
             <label>Exp. Date (MM/YY)</label>
             <div class="row">
-              <div>
-                <input  class="input__mm" type="text" placeholder="MM"></input>
+              <div >
+                <input maxlength="2"  class="input__mm" type="text" placeholder="MM"></input>
                 <p class="errors holder-name hidden">can't be blank</p>
               </div>
-              <div><input class="input__yy" type="text" placeholder="YY"> </input>
+              <div class="mr-3">
+                <input maxlength="2" class="input__yy" type="text" placeholder="YY"> </input>
                 <p class="errors holder-name hidden">can't be blank</p>
               </div>
             </div>
@@ -77,11 +78,12 @@
 
           <div class="cvc">
             <label>CVC</label>
-            <input class="input__eg" type="text" placeholder="e.g. 123">
+            <input maxlength="4" class="input__eg" type="text" placeholder="e.g. 123">
             <p class="errors holder-name hidden">can't be blank</p>
           </div>
         </div>
-        <input class="form__confirm" type="submit" value="Confirm">
+        <!-- <input class="form__confirm" type="submit" value="Confirm"> -->
+        <button class="form__confirm" type="button">Confirm</button>
       </form>
 
       <!-- ==== complated ===== -->
@@ -94,20 +96,6 @@
     </div>
   </section>
 </main>
-
-  
-
-
-  
-  
-
-
-  <!-- Completed state start
-
-  Thank you!
-  
-  Continue
-    -->
 <script src="main.js"></script>
 </body>
 </html>
